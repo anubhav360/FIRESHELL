@@ -165,7 +165,7 @@ void Help()
 // Function to execute builtin commands
 int Built_in_cmds(char** parsed1)
 {
-    int cmd_no = 5, i, req_cmdno = 0;
+    int cmd_no = 6, i, req_cmdno = 0;
     char* commands[cmd_no];
     char* username;
 
@@ -174,6 +174,7 @@ int Built_in_cmds(char** parsed1)
     commands[2] = "help";
     commands[3] = "average";
     commands[4] ="hello";
+    commands[5]="whatsthetime";
     for (i = 0; i < cmd_no; i++) {
         if (strcmp(parsed1[0], commands[i]) == 0) {
             req_cmdno = i + 1;
@@ -224,6 +225,9 @@ int Built_in_cmds(char** parsed1)
             "\nType in help and press Enter..\n",
             username);
         return 1;
+        case 6:
+            telltime();
+            return 1;
     default:
         break;
     }
